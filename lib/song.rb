@@ -31,7 +31,7 @@ class Song
   end
 
   def self.find_by_name(name_to_find)
-    is_found = false
+    is_found = nil
     self.all.each do |song|
       if song.name == name_to_find
         is_found = song
@@ -46,7 +46,7 @@ class Song
     is_found = self.find_by_name(name_to_find_or_create)
     action = nil
 
-    if is_found == false || is_found == nil
+    if is_found == nil
       action = self.create_by_name(name_to_find_or_create) 
     else 
       action = is_found
